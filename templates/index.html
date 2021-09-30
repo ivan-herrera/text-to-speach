@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Audio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    
+</head>
+<body class="h-100" >
+    <div style="width: 100%; max-height: 30px; background-color: #0d6efd;">
+        <p class="text-light" style="text-align: center;"><strong>Made with <em class="text-warning">♥</em> for the world</strong></p>
+    </div>
+    <div class="container mx-auto">
+        <main role="main">
+            <div class="row align-items-center">
+                <div class="col-sm">
+                    <div class="mb-3" >
+                        <div>
+                            <h1 style="font-family: 'Roboto', sans-serif;"><strong>COTA - Text to Speech</strong></h1>
+                            <p>Convierte tus textos en audios de forma gratuita y sencilla.</p>
+                        </div>
+                        <br>
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="filepicker" class="form-label">Puedes seleccionar multiples archivos de texto.</label>
+                                <input type="file" class="form-control" name="textos" webkitdirectory id="filepicker" accept=".txt, .docx, .doc, .dat" required/>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" class="btn btn-primary" value="Convertir archivo(s)">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="mb-3">
+                        <img src="/static/img/Speech to text-rafiki.svg" class="img-fluid" alt="Persona esccuhando musica mientras lee">
+                    </div> 
+                </div>
+            </div>
+        </main>
+        
+        <footer class="mt-auto text-center text-black-50">
+            <p>&copy; 2021 Ivan Herrera & Jamer Noble.</p>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

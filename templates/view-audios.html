@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Conversion</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div>
+                <h1  style="font-family: 'Roboto', sans-serif;">COTA - Text to Speech</h1>
+                <p>Convierte tus textos en audios de forma gratuita y sencilla.</p>
+            </div>
+            <br>
+            <div class="mx-auto" style="width: 400px">
+                <h3 style="color: red;">¡Conversión completada!</h3>
+                <p>
+                    Descargue o reproduzca los archivos de audio.
+                </p>
+            </div>
+        </div>
+        
+        <div class="mx-auto" style="max-width: 75%;">  
+            <div class="row mb-3">
+                <div class="col-sm">
+                    <a href="/" class="btn btn-secondary ">Volver a convertir</a>
+                </div>
+                
+                <div class="col-sm">
+                    <form action="/buscar" method="POST" class="input-group">
+                        <input type="text" name="palabra" class="form-control" placeholder="Buscar...">
+                        <input type="submit" value="Buscar" class="btn btn-outline-primary">
+                        <a href="/complete-conversion" class="btn btn-outline-primary">Mostrar todos</a>
+                    </form>
+                </div>
+                <div class="col-sm">
+                    <a href="/static/audios-comprimidos.zip" download="TTS-Audios.zip" class="btn btn-success float-end">Descargar todos</a>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Nombre del archivo {{lon}}</th>
+                            <th scope="col" class="text-center">Audio .MP3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for audio in audios %}
+                        <tr>
+                            <td>{{ audio }}</td>      
+                            <td class="text-center">
+                                <audio controls>
+                                    <source src="../static/audios/{{ audio }}" type="audio/mpeg">
+                                </audio>  
+                            </td>  
+                        </tr>
+                        {% else %} 
+                        <div class="text-center">
+                            <img src="/static/img/4569774.jpg" style="width: 500px; height: 500px;" class="img-fluid" alt="Persona observando archivos.">
+                        </div>                          
+                        {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    <div style="height: 100px;">
+    </div>
+</body>
+</html>
